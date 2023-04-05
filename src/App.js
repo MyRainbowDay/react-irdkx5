@@ -30,6 +30,7 @@ class DatePicker extends React.Component {
         }}
         value={this.props.value}
         onChange={this.handleDateChange}
+        className="date-picker"
       />
     );
   }
@@ -50,17 +51,17 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
-        <div>
-          {this.state.date ? `Date: ${this.state.date}` : 'Select date'}{' '}
-        </div>
-        <div>
+      <div className="container">
+        <div>{this.state.date ? `Date: ${this.state.date}` : 'Select date'}</div>
+        <div className="date-picker-container">
           <DatePicker value={this.state.date} onDateChange={this.handleDateChange} />
         </div>
-        <div>
-          <button onClick={this.handleResetClick}>Reset date</button>
+        <div className="btn-container">
+          <button onClick={this.handleResetClick} className="btn">
+            Reset date
+          </button>
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 }
